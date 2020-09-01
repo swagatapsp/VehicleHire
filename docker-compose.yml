@@ -3,20 +3,20 @@ version: '3.5'
 
 services:
 
-  strategy-core:
-    container_name: vehcile-hire
+  vehicle-hire:
+    container_name: VehicleHire
     build:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - /root/Dropbox/strategy-logs:/home/vehcile-hire-logs-folder
+      - /root/Dropbox/vehiclehire-logs:/home/vehcile-hire-logs-folder
     environment:
-      - "JVM_OPTIONS=-Delastic.apm.service_name=vehcile-hire -Delastic.apm.application_packages=com.babcock -Delastic.apm.server_urls=http://apm-server:8200"
+      - "JVM_OPTIONS=-Delastic.apm.service_name=VehicleHire -Delastic.apm.application_packages=com.babcock -Delastic.apm.server_urls=http://apm-server:8200"
     ports:
       - "8080:8080"
       - "8443:8443"
     networks:
-      - strategydockerelk_elk
+      - sVehicleHiredockerelk_elk
 networks:
-  strategydockerelk_elk:
+  sVehicleHiredockerelk_elk:
     external: true
